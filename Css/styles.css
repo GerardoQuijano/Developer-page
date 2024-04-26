@@ -1,8 +1,8 @@
 :root{
     --blanco: #ffffff;
     --oscuro: #212121;
-    --primario: #ffc107;
-    --secundario:#c9a438;
+    --primario: #c9a438;
+    --secundario:#339896;
     --gris: #757575;
     --glassGris: #66dcd2a6;
 
@@ -10,7 +10,13 @@
 }
 html 
 {
-font-size: 62.5%px;
+    font-size: 62.5%px;
+    /* Hack box model*/
+    box-sizing: border-box;
+}
+
+*,*:before, *:after{
+    box-sizing: inherit;/*Hack para box model */
 }
 
 html 
@@ -21,11 +27,20 @@ font-size: 62.5%px;
 body{
     font-size: 16px;
 }
-.titulo {
-    text-align: center;
+/* Tipo grafia*/
+h1{
     font-size: 3.8rem;
-    color: aqua;
 }
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: ce;
+}
+
 .titulo span{
 
     font-size: 2rem;
@@ -46,6 +61,7 @@ body{
 .navegacion-principal {
     padding: 1rem;
     display:flex;
+    align-items: center;
     /* justify-conten es para filas 
     align-items es para columnas (flex-direction)*/
     justify-content: space-between;
@@ -53,13 +69,17 @@ body{
     font-weight: bold; /*negritas*/
 
 }
+@media (min-width: 768px){
+  .navegacion-principal{
+    flex-direction: row;
+  }
+}
 
 .contenedor{
     width: 120rem;
     /*
     margin: 0 auto 0 auto;
     margin: 0 auto;
-    
     */
     margin: 0 auto;
 
@@ -98,21 +118,47 @@ Tamaños recomendados para media query
 1400px para dispositivos mas grandes como monitores o TVs
 */
 
-body{
-    background-color: seagreen;
+.hero{
+    background-image: url(../image/hero.jpg);
+    /* ../ es para regresae un nivel del directiorio
+    la carpeta img esta afuera de ccs */
+    background-repeat: no-repeat;
+    /*sirve para que imagenes pequeñas no se repitan*/
+    background-size: cover;
+    /*sirve para cubrer la imagen con todo el tamaño*/
+    height: 450px; /* Altura del hero*/
+    position: relative; /* Para manipular la posicion, el padre siempre debe ser relative*/
+    
 }
 
-@media (min-width: 480px){
-
-    body{
-        background-color: cornflowerblue    ;
-    }
+.contenedor-hero{
+    position: absolute; /* El hijo siempre debe ser absoluto*/
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (min-width: 768px){
-
-    body{
-        background-color: greenyellow    ;
-    }
+.contenedor-hero p, .contenedor-hero h2{
+    color: var(--blanco);
 }
-
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+.boton{
+    background-color: var(--secundario); /* Color de fondo del boton*/
+    color: var(--blanco);/*Color de texto*/
+    padding: 1rem 3rem;
+    margin-top: 3rem;/*Separacion superior*/
+    font-size: 2rem;
+    text-decoration: none;/*quitar subrayado*/
+    text-transform: uppercase;/*Siempre mayusculas*/
+    font-weight: bold;/*Poner texto en mayusculas*/
+    border-radius: .5rem;/*Esquinas redondeadas*/
+    width: 90%;/*Ancho del boton*/
+    text-align: center;/*Centrar el texto del boton*/
+}

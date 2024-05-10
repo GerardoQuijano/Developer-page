@@ -159,6 +159,6 @@ Tamaños recomendados para media query
     text-transform: uppercase;/*Siempre mayusculas*/
     font-weight: bold;/*Poner texto en mayusculas*/
     border-radius: .5rem;/*Esquinas redondeadas*/
-    width: 90%;/*Ancho del boton*/
+    width: 5%;/*Ancho del boton*/
     text-align: center;/*Centrar el texto del boton*/
 }
